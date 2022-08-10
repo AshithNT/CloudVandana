@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Assignment 1</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
@@ -13,38 +13,228 @@
 
 </head>
 <body>
+    <div class="navbar-brand mx-5 float-right">
+        <a href="index2.html">Assignment 2</a>
+
+    </div>
     <div class="container-fluid">
-        <h1>My First Bootstrap Page</h1>
-        <p>This is some text.</p>
+        <h1 style="text-align:center">Assignment 1</h1>
+        
       </div>
 
       <div class="container">
-        <table class="table table-striped">
+        <div class="row">
+          <div class="col">
+           
+            <form>
+                <div class="form-group">
+
+                  
+                  <input type="text" class="form-control" id="firstname" placeholder="First name"><br>
+                  <input type="text" class="form-control" id="lastname" placeholder="Last name"><br>
+                  <input type="text" class="form-control" id="city" placeholder="City"><br>
+                  <input type="text" class="form-control" id="country" placeholder="Country"><br>
+                  
+                </div>
+                
+    
+               
+
+          </div>
+          <div class="col my-5">
+            <button type="button" class="btn btn-primary my-3" id="addtop">Add row to top</button>
+            <button type="button" class="btn btn-primary" id="addbottom" onclick="addrowbottom()">Add row to bottom</button>
+              </form>
+          </div>
+        </div>
+
+
+      
+
+      
+
+      <div class="container">
+        <table class="table table-striped table-bordered" id="mytab">
           <thead>
             <tr>
-              <th>Firstname</th>
-              <th>Lastname</th>
-              <th>Email</th>
+              <th>SL.No</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>City</th>
+              <th>Country</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>john@example.com</td>
+              <td>1</td>
+              <td>John</td>  
+              <td>Jose</td>
+              <td>Newyork</td>
+              <td>USA</td>
             </tr>
             <tr>
-              <td>Mary</td>
-              <td>Moe</td>
-              <td>mary@example.com</td>
-            </tr>
-            <tr>
-              <td>July</td>
-              <td>Dooley</td>
-              <td>july@example.com</td>
-            </tr>
+                <td>2</td>
+                <td>Danny</td>  
+                <td>Wilson</td>
+                <td>California</td>
+                <td>USA</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Sunny</td>  
+                <td>Luis</td>
+                <td>Paris</td>
+                <td>France</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Madson</td>  
+                <td>Maddy</td>
+                <td>New delhi</td>
+                <td>India</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Johnson</td>  
+                <td>Timberland</td>
+                <td>Tokyo</td>
+                <td>Japan</td>
+              </tr>
+           
           </tbody>
         </table>
       </div>
+
+     
+
+   
+      
+
+
+
+<script>
+
+document.getElementById("addtop").onclick=function() {
+
+    
+
+
+/*var cell1 = row.insertCell(0);
+var firstname = row.insertCell(1);
+var lastname = row.insertCell(2);
+var city = row.insertCell(3);
+var country = row.insertCell(4);
+console.log(r);*/
+
+
+
+
+
+     let cell,firstRow,row;
+  let table=document.getElementById("mytab");
+  firstRow=table.rows[0];
+  row=table.insertRow(1);
+  row.className="tr";
+  cell=row.insertCell(-1);
+  cell.innerHTML="1";
+  var firstname = row.insertCell(1);
+  var lastname = row.insertCell(2);
+var city = row.insertCell(3);
+var country = row.insertCell(4);
+  
+  for (let i=2;i<table.rows.length;i++){
+    table.rows[i].cells[0].innerHTML=i;
+  }
+  firstname.innerHTML = document.getElementById("firstname").value;
+lastname.innerHTML = document.getElementById("lastname").value;
+city.innerHTML = document.getElementById("city").value;
+country.innerHTML = document.getElementById("country").value;
+
+
+    
+    
+    
+    
+    /*var myTableArray = [];
+
+$("table#mytab tr").each(function() {
+    var arrayOfThisRow = [];
+    var tableData = $(this).find('td');
+    if (tableData.length > 0) {
+        tableData.each(function() { arrayOfThisRow.push($(this).text()); });
+        myTableArray.push(arrayOfThisRow);
+    }
+});*/
+
+
+
+  
+    
+
+
+
+
+  /* document.getElementById("mytab").style.display = "block table table-striped table-bordered";
+
+var table = document.getElementById("mytab");
+var rowcount=table.rows.length;
+var row = table.insertRow(1);
+var r=rowcount-(rowcount-1)
+
+var cell1 = row.insertCell(0);
+var firstname = row.insertCell(1);
+var lastname = row.insertCell(2);
+var city = row.insertCell(3);
+var country = row.insertCell(4);
+console.log(r);
+
+
+cell1.innerHTML=r
+firstname.innerHTML = document.getElementById("firstname").value;
+lastname.innerHTML = document.getElementById("lastname").value;
+city.innerHTML = document.getElementById("city").value;
+country.innerHTML = document.getElementById("country").value;
+
+
+return false;*/
+
+
+
+}
+
+
+
+
+
+document.getElementById("addbottom").onclick=function() {
+    document.getElementById("mytab").style.display = "block table table-striped table-bordered";
+
+var table = document.getElementById("mytab");
+var rowcount=table.rows.length;
+var row = table.insertRow(-1);
+
+var cell1 = row.insertCell(0);
+var firstname = row.insertCell(1);
+var lastname = row.insertCell(2);
+var city = row.insertCell(3);
+var country = row.insertCell(4);
+console.log(rowcount);
+
+
+cell1.innerHTML=rowcount
+firstname.innerHTML = document.getElementById("firstname").value;
+lastname.innerHTML = document.getElementById("lastname").value;
+city.innerHTML = document.getElementById("city").value;
+country.innerHTML = document.getElementById("country").value;
+
+return false;
+}
+
+
+
+</script>
+
+
+
 </body>
 </html>
